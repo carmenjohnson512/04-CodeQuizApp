@@ -10,7 +10,7 @@ $(function(){
     
     //Questions Function
 
-    $(function renderQuestion(){
+    //$(function renderQuestion(){
         let quizQuestions = [
             {
             question: "1. Which of these expressions is NOT a valid way to add 1 to a variable in JavaScript?",
@@ -110,57 +110,54 @@ $(function(){
                 c: "Filters it",
                 d: "Repeats it",
             correctAnswer: "D",     
-            },
+            }
         }];
 
         let answers = [];
         
-        let q = quizQuestions[currentQuestionIndex];
-
-        let lastQuestionIndex = quizQuestions.length - 1;
-        
         let currentQuestionIndex = 0;
-        // got this from sitepoint.com -- need to flush this out (not sure what's going on or where to go)
-        quizQuestions.forEach(currentQuestion, questionNumber) {
-            for(letter in currentQuestion.answers) {
-                answers.push("<label><input type="radio" name="question${questionNumber}" value="${letter}">${letter}:
-                    ${currentQuestion.answers[letter]}
-                  </label>"");
-    
+        let q
+        function renderQuestion() {
+
+            q = quizQuestions[currentQuestionIndex];
+
+            let lastQuestionIndex = quizQuestions.length - 1;
+            
+
+            $('#questionTitle').text(q.question)
+
+            for (const key in q.answers) {
+               // console.log('this is the key!!', key)
+                //console.log('each answer!!!', q.answers[key])
+                $('#' + key).text( "    " +q.answers[key])
             }
-
         }
+        renderQuestion()
+       
         
-        
-        $('.question-modal-header').html($("<h3>" + q[question] + "</h3>"));
-            $(".choiceA").text($(q).attr({"#choiceA": ));
-            $(".choiceB").text($(q).attr("choiceB"));
-            $(".choiceC").text($(q).attr("choiceC"));
-            $(".choiceD").text($(q).attr("choiceD"));
-            // choiceB.innerHTML = q.choiceB;
-            // choiceC.innerHTML = q.choiceC;
-            // choiceD.innerHTML = q.choiceD;
-    }
-    renderQuestion();
 
-    $("label.btn").on('click',function () {
-    	let userChoice = $(this).find('input:choice').val();
-    	$('#loadbar').show();
-    	$('#quiz').fadeOut();
-    	setTimeout(function(){
-           $( "#answer" ).html(  $(this).checking(userChoice) );      
-            $('#quiz').show();
-            $('#loadbar').fadeOut();
-           /* something else */
-    	}, 1000);
+    $(".btn").on('click',function () {
+        console.log('u got clicked!!', $(this).attr('name'))
+        console.log('can we use q here ??', q)
+        //alert right or wrong (if/else)
+        //incrment score or decrment timer
+        // go to next question
+        currentQuestionIndex++
+        renderQuestion()
+
+
+    
     });
 
-    $ans = 3;
+    
+    // $ans = 3;
 
-    $.fn.checking = function(ck) {
-        if (ck != $ans)
-            return 'INCORRECT';
-        else 
-            return 'CORRECT';
-    }; 
-});	
+//     $.fn.checking = function(ck) {
+//         if (ck != $ans)
+//             return 'INCORRECT';
+//         else 
+//             return 'CORRECT';
+//     }; 
+// });	
+
+})

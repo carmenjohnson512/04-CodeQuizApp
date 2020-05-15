@@ -26,7 +26,7 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="question-modal-header">
-                    <h3>THREE is CORRECT</h3>
+                    <h3 id="questionTitle">THREE is CORRECT</h3>
                 </div>
                 <div class="modal-body">
                     <div class="col-xs-3 col-xs-offset-5">
@@ -43,10 +43,10 @@
                 </div>
 
                 <div class="quiz" id="quiz" data-toggle="buttons">
-                <label class="choiceA element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" id="choiceA" name="q_answer" value="a"></label>
-                <label class="choiceB element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" id="choiceB" name="q_answer" value="b"></label>
-                <label class="choiceC element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" id="choiceC" name="q_answer" value="c"></label>
-                <label class="choiceD element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" id="choiceD" name="q_answer" value="d"></label>
+                <label name="a" class="choiceA element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><span id="a"></span> </label>
+                <label name="b" class="choiceB element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><span id="b"></span> </label>
+                <label name="c" class="choiceC element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><span id="c"></span> </label>
+                <label name="d" class="choiceD element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><span id="d"></span> </label>
                 </div>
                 </div>
             <div class="modal-footer text-muted">
