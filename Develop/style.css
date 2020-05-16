@@ -28,10 +28,11 @@
   
   label .btn-label {
       position: absolute;
+      align-content: center;
       left: 0;
       top: 0;
       display: inline-block;
-      padding: 0 10px;
+      padding: 20px 10px;
       background: rgba(0,0,0,.15);
       height: 100%
   }
@@ -167,7 +168,7 @@
       border-radius: .3rem;
       outline: 0;
     }
-    
+
   #loadbar {
       position: absolute;
       width: 62px;
