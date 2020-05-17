@@ -1,7 +1,6 @@
-$(function codeQuiz(){
 
-    let score = "";
-    let timer = [];
+$(document).ready(function codeQuiz(){
+
     //Questions Function
 
     let quizQuestions = [
@@ -139,6 +138,7 @@ $(function codeQuiz(){
             $("#answer").text("INCORRECT");
         } else {
             $("#answer").text("CORRECT");
+
         }
     
         currentQuestionIndex++
@@ -151,7 +151,6 @@ $(function codeQuiz(){
     // timer function
     let timer2 = "5:00";
     let interval = setInterval(function() {
-    
     
         let timer = timer2.split(':');
         //by parsing integer, I avoid all extra string processing
@@ -167,6 +166,13 @@ $(function codeQuiz(){
         timer2 = minutes + ':' + seconds;
     }, 1000);
     
-
+    // score function
+    let score = '';
+    function scoreIncrement() {
+    score += 1;
+    $(".score")[0].innerHTML = score;
+    console.log("is score working?", score)
+    };
+    $(".score").html(scoreIncrement());
     
 });	
