@@ -36,11 +36,24 @@
       background: rgba(0,0,0,.15);
       height: 100%
   }
+<<<<<<< HEAD
   
   .timer-highscores {
       display: flex;
       justify-content: space-between;
       align-items: center;
+=======
+
+  #timer-highscores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+ 
+  label .glyphicon {
+      top: 34%
+>>>>>>> 5cb18ed8d1b664794b60fcbbd4d6d3fbaa387061
   }
   
   .element-animation1 {
