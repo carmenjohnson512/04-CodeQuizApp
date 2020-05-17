@@ -37,7 +37,7 @@
       height: 100%
   }
   
-  .timer-highscores {
+  .timer-score-highscores {
       display: flex;
       justify-content: space-between;
       align-items: center;

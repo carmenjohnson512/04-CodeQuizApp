@@ -149,7 +149,7 @@ $(function codeQuiz(){
     });
 
     // timer function
-    let timer2 = "2:31";
+    let timer2 = "5:00";
     let interval = setInterval(function() {
     
     
