@@ -150,11 +150,10 @@ $(function(){
             $("#answer").text("CORRECT");
         }
        
-        // setTimeout( function () {currentQuestionIndex++}, 2000);
         currentQuestionIndex++
         setTimeout( function () {
             renderQuestion()
-
+            $($("#answer").empty());
         }, 3000);
             
     });
