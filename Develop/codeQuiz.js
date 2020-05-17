@@ -8,7 +8,6 @@ $(function(){
     	loading.hide();
     });
     
-    //Questions Function
 
         let quizQuestions = [
             {
@@ -112,64 +111,73 @@ $(function(){
             }
         }];
 
+
+        // Render question function
         let answers = [];
-        
         let currentQuestionIndex = 0;
         let q;
+
         function renderQuestion() {
-
+            // let currentQuestionIndex = 0;
             q = quizQuestions[currentQuestionIndex];
-           
-            let lastQuestionIndex = quizQuestions.length - 1;
-            
-
+                    
             $('#questionTitle').text(q.question)
 
             for (const key in q.answers) {
                //console.log('this is the key!!', key)
                //console.log('each answer!!!', q.answers[key])
                 $('#' + key).text( "    " +q.answers[key])
-            };
+                };
         };
         renderQuestion()
-       
-        let choices;
-        let correctAnswer = [];
 
-    $(".btn").on('click',function () {
-        console.log('u got clicked!!', $(this).attr('name'))
-        q = quizQuestions[currentQuestionIndex];
-        choices = $(".btn").map(function() {
-            return $(this).attr("name");
-            }).get();
-        userChoice = 
-        console.log("is this returning choices?", choices)
-       
-        correctAnswer = q.correctAnswer;
-        console.log("is this correct answer?", correctAnswer)
-       
-        // for (let i = 0; i < choices.length; i++) {
-            if ($(this).attr("name") != correctAnswer)
-                console.log("incorrect answer", correctAnswer)
-                // return 'INCORRECT';
-            else 
-                console.log("correct answer", correctAnswer)
-                // return 'CORRECT';
-        // }   console.log("what is this returning?", choices[i])
-        //alert right or wrong (if/else)
-        //incrment score or decrment timer
-        // go to next question
-        currentQuestionIndex++
-        renderQuestion();
+        // answer selection function
+            q = quizQuestions[currentQuestionIndex];
+
+            $(".btn").on('click',function () {
+                let choices;
+                let correctAnswer = [];
+                choices = $(".btn").map(function() {
+                    return $(this).attr("name");
+                    }).get();
+            
+                correctAnswer = q.correctAnswer;
+            
+                    if ($(this).attr("name") != correctAnswer) { 
+                        return $("#answer").text("INCORRECT!");
+                        // timer-- * 15
+                    } else 
+                        return $("#answer").text("CORRECT!");
+            });
+            currentQuestionIndex++
+            renderquestion();
+    
 
         // Timer function
-        const questionTime = 10;
-        const counterLimit = 100;
+        let timer = "200";
+        let interval = setInterval(function() {
+
+        //by parsing integer, I avoid all extra string processing
+            function makeTimer() {
+
+                
+                    let endTime = 0;
+                    let now;
+                    let startTime = 200;
+                    var timeLeft = endTime - now;
+        
+                    
+                    var seconds = Math.floor((timeLeft - seconds * 1000));
+            
+                
+                    if (seconds < "10") { seconds = "0" + seconds; }
+        
+                    $("#seconds").html(seconds + "<span>Seconds</span>");		
+        
+            };
+            setInterval(function() { makeTimer(); }, 1000);
+        });
 
     
-    });
 
-    
-
-    
-});	
+    }); 

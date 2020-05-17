@@ -36,7 +36,14 @@
       background: rgba(0,0,0,.15);
       height: 100%
   }
-  
+
+  #timer-highscores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+ 
   label .glyphicon {
       top: 34%
   }
