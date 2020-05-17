@@ -150,11 +150,11 @@ $(function(){
        
         // for (let i = 0; i < choices.length; i++) {
             if ($(this).attr("name") != correctAnswer)
-                console.log("incorrect answer", correctAnswer)
-                // return 'INCORRECT';
+                // console.log("incorrect answer", correctAnswer)
+                $("#answer").text("INCORRECT");
             else 
-                console.log("correct answer", correctAnswer)
-                // return 'CORRECT';
+                // console.log("correct answer", correctAnswer)
+                $("#answer").text("CORRECT");
         // }   console.log("what is this returning?", choices[i])
         //alert right or wrong (if/else)
         //incrment score or decrment timer
