@@ -1,13 +1,7 @@
-$(function(){
+$(function codeQuiz(){
 
-    var loading = $('#loadbar').hide();
-    $(document)
-    .ajaxStart(function () {
-        loading.show();
-    }).ajaxStop(function () {
-    	loading.hide();
-    });
-    
+    let score = "";
+    let timer = [];
     //Questions Function
 
         let quizQuestions = [
@@ -118,10 +112,7 @@ $(function(){
         let q;
         function renderQuestion() {
 
-            q = quizQuestions[currentQuestionIndex];
-           
-            let lastQuestionIndex = quizQuestions.length - 1;
-            
+            q = quizQuestions[currentQuestionIndex];            
 
             $('#questionTitle').text(q.question)
 
