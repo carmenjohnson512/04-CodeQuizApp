@@ -1,5 +1,6 @@
-Carmen Johnson | JavaScript Password Generator
-Email: carmenjohnson512@gmail.com | LinkedIn: https://www.linkedin.com/in/carmenjohnson512/
+# Carmen Johnson | JavaScript Password Generator
+
+#### Email: carmenjohnson512@gmail.com | LinkedIn: https://www.linkedin.com/in/carmenjohnson512/
 
 ![code quiz](https://github.com/carmenjohnson512/CodeQuizApp/blob/master/Develop/quizScreenshot.jpg?raw=true)
 
