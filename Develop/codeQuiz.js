@@ -118,14 +118,11 @@ $(function(){
         let q;
 
         function renderQuestion() {
-            // let currentQuestionIndex = 0;
             q = quizQuestions[currentQuestionIndex];
                     
             $('#questionTitle').text(q.question)
 
             for (const key in q.answers) {
-               //console.log('this is the key!!', key)
-               //console.log('each answer!!!', q.answers[key])
                 $('#' + key).text( "    " +q.answers[key])
                 };
         };
