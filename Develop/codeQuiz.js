@@ -2,7 +2,6 @@
 $(document).ready(function codeQuiz(){
 
     //Questions Function
-
     let quizQuestions = [
         {
         question: "1. Which of these expressions is NOT a valid way to add 1 to a variable in JavaScript?",
@@ -106,14 +105,14 @@ $(document).ready(function codeQuiz(){
         }];
 
     let answers = [];
+    let score = 0;
     let currentQuestionIndex = 0;
     let q;
 
     function renderQuestion() {
-
         q = quizQuestions[currentQuestionIndex];            
 
-        $('#questionTitle').text(q.question)
+        $("#questionTitle").text(q.question)
 
         for (const key in q.answers) {
             //console.log('this is the key!!', key)
@@ -133,12 +132,14 @@ $(document).ready(function codeQuiz(){
             }).get();
     
         correctAnswer = q.correctAnswer;
+        // updateScore = $(".score").html(score++);
     
         if ($(this).attr("name") != correctAnswer) {
             $("#answer").text("INCORRECT");
         } else {
             $("#answer").text("CORRECT");
-
+            $(".score").html((score++) + 1);
+            // console.log("is score updating after first ?", score)
         }
     
         currentQuestionIndex++
@@ -166,13 +167,6 @@ $(document).ready(function codeQuiz(){
         timer2 = minutes + ':' + seconds;
     }, 1000);
     
-    // score function
-    let score = '';
-    function scoreIncrement() {
-    score += 1;
-    $(".score")[0].innerHTML = score;
-    console.log("is score working?", score)
-    };
-    $(".score").html(scoreIncrement());
+   
     
 });	
