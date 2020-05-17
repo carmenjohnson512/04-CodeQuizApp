@@ -8,6 +8,7 @@ $(function(){
     	loading.hide();
     });
     
+    //Questions Function
 
         let quizQuestions = [
             {
@@ -111,70 +112,54 @@ $(function(){
             }
         }];
 
-
-        // Render question function
         let answers = [];
+        
         let currentQuestionIndex = 0;
         let q;
-
         function renderQuestion() {
+
             q = quizQuestions[currentQuestionIndex];
-                    
+           
+            let lastQuestionIndex = quizQuestions.length - 1;
+            
+
             $('#questionTitle').text(q.question)
 
             for (const key in q.answers) {
+               //console.log('this is the key!!', key)
+               //console.log('each answer!!!', q.answers[key])
                 $('#' + key).text( "    " +q.answers[key])
-                };
+            };
         };
         renderQuestion()
+       
+        let choices;
+        let correctAnswer = [];
 
-        // answer selection function
-            q = quizQuestions[currentQuestionIndex];
+    $(".btn").on('click',function () {
+        q = quizQuestions[currentQuestionIndex];
+        choices = $(".btn").map(function() {
+            return $(this).attr("name");
+            }).get();
+       
+        correctAnswer = q.correctAnswer;
+       
+        if ($(this).attr("name") != correctAnswer) {
+            $("#answer").text("INCORRECT");
+        } else {
+            $("#answer").text("CORRECT");
+        }
+       
+        // setTimeout( function () {currentQuestionIndex++}, 2000);
+        currentQuestionIndex++
+        setTimeout( function () {
+            renderQuestion()
 
-            $(".btn").on('click',function () {
-                let choices;
-                let correctAnswer = [];
-                choices = $(".btn").map(function() {
-                    return $(this).attr("name");
-                    }).get();
+        }, 3000);
             
-                correctAnswer = q.correctAnswer;
-            
-                    if ($(this).attr("name") != correctAnswer) { 
-                        return $("#answer").text("INCORRECT!");
-                        // timer-- * 15
-                    } else 
-                        return $("#answer").text("CORRECT!");
-            });
-            currentQuestionIndex++
-            renderquestion();
-    
-
-        // Timer function
-        let timer = "200";
-        let interval = setInterval(function() {
-
-        //by parsing integer, I avoid all extra string processing
-            function makeTimer() {
-
-                
-                    let endTime = 0;
-                    let now;
-                    let startTime = 200;
-                    var timeLeft = endTime - now;
-        
-                    
-                    var seconds = Math.floor((timeLeft - seconds * 1000));
-            
-                
-                    if (seconds < "10") { seconds = "0" + seconds; }
-        
-                    $("#seconds").html(seconds + "<span>Seconds</span>");		
-        
-            };
-            setInterval(function() { makeTimer(); }, 1000);
-        });
+    });
 
     
 
-    }); 
+    
+});	
