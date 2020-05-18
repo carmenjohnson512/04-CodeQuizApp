@@ -135,17 +135,30 @@ $(document).ready(function codeQuiz(){
     
         if ($(this).attr("name") != correctAnswer) {
             $("#answer").text("INCORRECT");
-            $(".countdown").html((timer2.seconds--) - 5);
+            $(".countdown").html((timer2.seconds--) * 20);
         } else {
             $("#answer").text("CORRECT");
-            $(".score").html((score++) + 1);    
+            $(".score").html(((score++) + 1) * 10);    
+        } if ($(timer2) == 0 || currentQuestionIndex == 9) {
+            correctAnswer;
+            console.log("is this showing the correct answer to #10?", correctAnswer)
+            clearInterval(interval);
+            currentQuestionIndex = -1;
+            // console.log(timer2)
+            setTimeout( function () {
+                alert ("Game Over!");
+                prompt ("Your score is " + (score * 10) + "! Enter your initials below");
+            }, 1000);
         }
+        
     
         currentQuestionIndex++
         setTimeout( function () {
             renderQuestion()
             $($("#answer").empty());
-        }, 3000);      
+        }, 3000);   
+        
+        
     });
 
     // timer function
