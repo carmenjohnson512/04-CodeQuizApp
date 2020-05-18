@@ -1,6 +1,20 @@
 
 $(document).ready(function codeQuiz(){
 
+    // let header = $(".myHeader");
+    // let sticky = header.offsetTop;
+
+    // // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    // function stickyHeader() {
+    //     if (window.pageYOffset > sticky) {
+    //         header.classList.add(".sticky");
+    //     } else {
+    //         header.classList.remove(".sticky");
+    //     }
+    // }
+    // window.onscroll = function() {stickyHeader()};
+
+
     //Questions Function
     let quizQuestions = [
         {
@@ -106,6 +120,7 @@ $(document).ready(function codeQuiz(){
 
     let answers = [];
     let score = 0;
+    let highscore = localStorage.getItem("highscore");
     let currentQuestionIndex = 0;
     let q;
 
@@ -149,15 +164,14 @@ $(document).ready(function codeQuiz(){
                 alert ("Game Over!");
                 prompt ("Your score is " + (score * 10) + "! Enter your initials below");
             }, 1000);
-        }
-        
+
+        };
     
         currentQuestionIndex++
         setTimeout( function () {
             renderQuestion()
             $($("#answer").empty());
         }, 3000);   
-        
         
     });
 
@@ -174,11 +188,19 @@ $(document).ready(function codeQuiz(){
         if (minutes < 0) clearInterval(interval);
         seconds = (seconds < 0) ? 59 : seconds;
         seconds = (seconds < 10) ? '0' + seconds : seconds;
-        //minutes = (minutes < 10) ?  minutes : minutes;
         $('.countdown').html(minutes + ':' + seconds);
         timer2 = minutes + ':' + seconds;
     }, 1000);
+      
+    // let highscore = localStorage.getItem("highscore");
+
+    // if(highscore !== null){
+    //     if (score > highscore) {
+    //         localStorage.setItem("highscore", score);      
+    //     }
     
-   
-    
+    //     else {
+    //         localStorage.setItem("highscore", score);
+    //     }
+    // };
 });	

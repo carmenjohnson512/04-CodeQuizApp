@@ -153,6 +153,12 @@
       }
   }
 
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
   .modal-body {
       min-height: 205px
   }
@@ -179,7 +185,7 @@
         background-color: transparent;
         color: inherit;
         padding: 10px;
-      }
+        }
 
     h2 {
     text-align: center;
