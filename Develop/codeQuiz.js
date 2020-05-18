@@ -132,14 +132,13 @@ $(document).ready(function codeQuiz(){
             }).get();
     
         correctAnswer = q.correctAnswer;
-        // updateScore = $(".score").html(score++);
     
         if ($(this).attr("name") != correctAnswer) {
             $("#answer").text("INCORRECT");
+            $(".countdown").html((timer2.seconds--) - 5);
         } else {
             $("#answer").text("CORRECT");
-            $(".score").html((score++) + 1);
-            // console.log("is score updating after first ?", score)
+            $(".score").html((score++) + 1);    
         }
     
         currentQuestionIndex++
